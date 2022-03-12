@@ -4,6 +4,12 @@ fake = Faker(locale='en_CA')
 app = 'AOS'
 url = 'https://advantageonlineshopping.com/#/'
 title = ' Advantage Shopping'
+chatbox_title = 'Advantage Online Shopping Demo Support Chat'
+facebook_url = 'https://www.facebook.com/MicroFocus/'
+twitter_url = 'https://twitter.com/MicroFocus'
+linkedin_url = 'https://www.linkedin.com/company/unavailable/'
+
+curr_handle = ""
 
 # data section
 first_name = fake.first_name()
@@ -18,6 +24,18 @@ city = fake.city()
 state = 'Iovia'
 address = fake.street_address().replace("\n", "")
 postal_code = fake.postcode()
+
+speaker_text = 'SPEAKERS'
+tablet_text = 'TABLETS'
+laptop_text = 'LAPTOPS'
+mice_text = 'MICE'
+headphones_txt = 'HEADPHONES'
+subject_box = 'Hello there'
+
+menu_item1 = "OUR PRODUCTS"
+menu_item2 = 'SPECIAL OFFER'
+menu_item3 = 'POPULAR ITEMS'
+menu_item4 = 'CONTACT US'
 
 list_ids = ['usernameRegisterPage', 'emailRegisterPage', 'passwordRegisterPage', 'confirm_passwordRegisterPage',
             'first_nameRegisterPage', 'last_nameRegisterPage', 'phone_numberRegisterPage',
