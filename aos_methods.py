@@ -69,7 +69,6 @@ def teardown():
         print('Teardown successful')
 
 
-
 # Create new users
 def create_new_user():
     sleep(locators.sleep_value)
@@ -339,6 +338,31 @@ def validate_add_itemto_shopping_cart():
     print('Total: ', driver.find_element(By.XPATH, '/html[1]/body[1]/div[3]/section[1]/article[1]/div[1]/div[2]/div[2]/label[2]').text )
 
 
+# validate no orders message is displayed
+def validate_no_order():
+    sleep(locators.sleep_value)
+    # driver.find_element(By.XPATH, '//*[@id="hrefUserIcon"]').click()
+    # driver.find_element(By.NAME, 'username').send_keys("pbdelete")
+    # driver.find_element(By.NAME, 'password').send_keys("Pass1")
+    # sleep(locators.sleep_value)
+    # driver.find_element(By.ID, 'sign_in_btnundefined').click()
+    sleep(locators.sleep_value)
+    driver.find_element(By.XPATH, '//*[@id="hrefUserIcon"]').click()
+    sleep(locators.sleep_value)
+    #driver.find_element(By.XPATH, '//*[@translate = "My_Orders"]').click()
+    #driver.find_element(By.XPATH, '//label[contains(., "My orders")]').click()
+    driver.find_element(By.XPATH, '/html[1]/body[1]/header[1]/nav[1]/ul[1]/li[3]/a[1]/div[1]/label[2]').click()
+
+    locators.curr_handle = driver.current_window_handle
+    driver.find_element(By.LINK_TEXT, 'REMOVE').click()
+    sleep(locators.sleep_value)
+    driver.find_element(By.CLASS_NAME, 'conf-btn-bold').click()
+    print('Delete confirmed')
+    sleep(locators.sleep_value)
+    #driver.switch_to.window(locators.curr_handle)
+    print(driver.find_element(By.XPATH, '//label[contains(., " - No orders - ")]').is_displayed())
+    sleep(locators.sleep_value)
+    driver.find_element(By.LINK_TEXT, 'CONTINUE SHOPPING').click()
 # Call methods from here
 # setUp()
 # create_new_user()
@@ -349,6 +373,7 @@ def validate_add_itemto_shopping_cart():
 # validate_contact_us()
 # validate_social_media()
 # validate_add_itemto_shopping_cart()
+# validate_no_order()
 # logout()
 # login()
 # logout()
