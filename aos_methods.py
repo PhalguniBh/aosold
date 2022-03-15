@@ -108,6 +108,7 @@ def create_new_user():
         pass
 
     sleep(locators.sleep_value)
+    sleep(locators.sleep_value)
     driver.find_element(By.ID, 'register_btnundefined').click()
     print("Successfully created a user")
 
@@ -139,6 +140,7 @@ def login():
 # define validate text
 def validate_text():
     # Check Speaker Text
+    sleep(locators.sleep_value)
     sleep(locators.sleep_value)
     abc = driver.find_element(By.ID, 'speakersTxt').text
     if abc == locators.speaker_text:
@@ -287,19 +289,11 @@ def validate_social_media():
 
 # Add item to Shopping cart
 def validate_add_itemto_shopping_cart():
+    sleep(locators.sleep_value)
     print('Inside shopping cart')
-    # -----------Temp login script------------
-    # sleep(locators.sleep_value)
-    # driver.find_element(By.XPATH, '//*[@id="hrefUserIcon"]').click()
-    # driver.find_element(By.NAME, 'username').send_keys("pbjira")
-    # driver.find_element(By.NAME, 'password').send_keys("Pass1")
-    # sleep(locators.sleep_value)
-    # driver.find_element(By.ID, 'sign_in_btnundefined').click()
-    # sleep(locators.sleep_value)
-
-    # -----------To remove above login detail lines from here later--------
     sleep(locators.sleep_value)
     driver.find_element(By.NAME, 'go_up_btn').click()
+    #sleep(locators.sleep_value)
     sleep(locators.sleep_value)
     driver.find_element(By.ID, 'speakersTxt').click()
     driver.find_element(By.XPATH, '//a[contains(., "Bose SoundLink Wireless Speaker")]').click()
@@ -309,35 +303,53 @@ def validate_add_itemto_shopping_cart():
     driver.find_element(By.ID, 'menuCart').click()
     driver.find_element(By.ID, 'checkOutPopUp').click()
     print('Clicked on shopping cart menu image')
+
+    # sleep(locators.sleep_value)
+    # driver.find_element(By.LINK_TEXT, 'Edit shipping details').click()
+
     sleep(locators.sleep_value)
     driver.find_element(By.ID, 'next_btn').click()
     sleep(locators.sleep_value)
-    driver.find_element(By.NAME, 'safepay_username').clear()
+    sleep(locators.sleep_value)
+    driver.find_element(By.NAME, 'safepay_username').click()
     driver.find_element(By.NAME, 'safepay_username').send_keys(locators.user_name)
-    driver.find_element(By.NAME, 'safepay_password').clear()
-    driver.find_element(By.NAME, 'safepay_password').send_keys(locators.password)
+    sleep(locators.sleep_value)
+    driver.find_element(By.NAME, 'safepay_password').click()
+    driver.find_element(By.NAME, 'safepay_password').send_keys((locators.password))
+
+    sleep(locators.sleep_value)
     driver.find_element(By.ID, 'pay_now_btn_SAFEPAY').click()
 
     if driver.find_element(By.XPATH, '//*[contains(., "Thank you")]'):
         print('Thank you message displayed')
-
-    order_number_element = driver.find_element(By.XPATH, '//label[@id="trackingNumberLabel"]').text
+    sleep(0.25)
     sleep(locators.sleep_value)
     print('Tracking Number: ', driver.find_element(By.CSS_SELECTOR, '#trackingNumberLabel').text)
     sleep(locators.sleep_value)
     print('Order number : ', driver.find_element(By.CSS_SELECTOR, '#orderNumberLabel').text)
+    sleep(locators.sleep_value)
+    print('Shipped to user name: ', driver.find_element(By.XPATH, '/html[1]/body[1]/div[3]/section[1]/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/label[1]').text)
+    sleep(locators.sleep_value)
+    print('Shipped to Address : ' )
+    print(driver.find_element(By.XPATH, '//body/div[3]/section[1]/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/label[1]').text)
+    print(driver.find_element(By.XPATH, '//body/div[3]/section[1]/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/label[2]').text)
+
+    print('Phone number is: ', driver.find_element(By.XPATH, '/html[1]/body[1]/div[3]/section[1]/article[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/label[1]').text)
+    print('Date ordered: ', driver.find_element(By.XPATH, '/html[1]/body[1]/div[3]/section[1]/article[1]/div[2]/div[1]/div[1]/div[2]/div[2]/label[1]').text)
+    print('Total: ', driver.find_element(By.XPATH, '/html[1]/body[1]/div[3]/section[1]/article[1]/div[1]/div[2]/div[2]/label[2]').text )
 
 
 # Call methods from here
 # setUp()
 # create_new_user()
+# sleep(0.25)
 # validate_text()
 # validate_top_menu()
 # verify_logo_display()
 # validate_contact_us()
 # validate_social_media()
+# validate_add_itemto_shopping_cart()
 # logout()
 # login()
-# validate_add_itemto_shopping_cart()
 # logout()
 # teardown()
