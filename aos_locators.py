@@ -13,7 +13,7 @@ curr_handle = ""
 
 # data section
 first_name = fake.first_name()
-user_name = f'bp{first_name}'.lower().strip()
+user_name = f'ph{first_name}'.lower().strip()
 password = fake.password()
 middle_name = fake.first_name()
 last_name = fake.name()
