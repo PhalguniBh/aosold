@@ -13,7 +13,7 @@ curr_handle = ""
 
 # data section
 first_name = fake.first_name()
-user_name = f'pb{first_name}'.lower().strip()
+user_name = f'bp{first_name}'.lower().strip()
 password = fake.password()
 middle_name = fake.first_name()
 last_name = fake.name()
@@ -24,6 +24,7 @@ city = fake.city()
 state = 'Iovia'
 address = fake.street_address().replace("\n", "")
 postal_code = fake.postcode()
+sleep_value = 4
 
 speaker_text = 'SPEAKERS'
 tablet_text = 'TABLETS'

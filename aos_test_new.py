@@ -1,17 +1,16 @@
 import unittest
 import aos_methods as methods
-from unittest import TestSuite
 
 class AosAppPositiveTestCases(unittest.TestCase):   # create class
 
     @staticmethod  # signal to unit test that this is a static method
-    def test_create_new_user(self=None):
-        methods.setUp()git 
+    def test_create_new_user():
+        methods.setUp()
         # ------ CREATE NEW USER -------------
         methods.create_new_user()
         # ------- Validate Text Speaker, Tablets, Headphones, Laptops, Mice---------------
         methods.validate_text()
- 	    # ------- Validate Top Menu bar Our Products, Special offer, popular items, contact us ------------
+        # ------- Validate Top Menu bar Our Products, Special offer, popular items, contact us ------------
         methods.validate_top_menu()
         # --------- Verify the logo ------------
         methods.verify_logo_display()
@@ -27,5 +26,3 @@ class AosAppPositiveTestCases(unittest.TestCase):   # create class
         # -------------------------
         methods.teardown()
 
-    # if __name__ == '__main__':
-    #     unittest.main()
