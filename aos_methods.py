@@ -63,7 +63,7 @@ def setUp():
 def teardown():
     if driver is not None:
         print('-------------------------------')
-        print('The test is completed at: {datetime.datetime.now()}')
+        print(f'The test is completed at: {datetime.datetime.now()}')
         driver.close()
         driver.quit()
         print('Teardown successful')
@@ -230,7 +230,7 @@ def validate_contact_us():
     sleep(locators.sleep_value)
     # driver.find_element(By.NAME, 'go_up_btn').click()
     driver.find_element(By.XPATH, '//label[@translate="CHAT_WITH_US"]').click()
-    print(driver.current_window_handle)
+    # print(driver.current_window_handle)
     handles = driver.window_handles  # all windows handles
     for handle in handles:
         driver.switch_to.window(handle)
@@ -289,15 +289,17 @@ def validate_social_media():
 def validate_add_itemto_shopping_cart():
     print('Inside shopping cart')
     # -----------Temp login script------------
-    sleep(locators.sleep_value)
-    driver.find_element(By.XPATH, '//*[@id="hrefUserIcon"]').click()
-    driver.find_element(By.NAME, 'username').send_keys("pbjira")
-    driver.find_element(By.NAME, 'password').send_keys("Pass1")
-    sleep(locators.sleep_value)
-    driver.find_element(By.ID, 'sign_in_btnundefined').click()
-    sleep(locators.sleep_value)
+    # sleep(locators.sleep_value)
+    # driver.find_element(By.XPATH, '//*[@id="hrefUserIcon"]').click()
+    # driver.find_element(By.NAME, 'username').send_keys("pbjira")
+    # driver.find_element(By.NAME, 'password').send_keys("Pass1")
+    # sleep(locators.sleep_value)
+    # driver.find_element(By.ID, 'sign_in_btnundefined').click()
+    # sleep(locators.sleep_value)
 
-    # -----------To remove from here later--------
+    # -----------To remove above login detail lines from here later--------
+    sleep(locators.sleep_value)
+    driver.find_element(By.NAME, 'go_up_btn').click()
     sleep(locators.sleep_value)
     driver.find_element(By.ID, 'speakersTxt').click()
     driver.find_element(By.XPATH, '//a[contains(., "Bose SoundLink Wireless Speaker")]').click()
@@ -311,15 +313,19 @@ def validate_add_itemto_shopping_cart():
     driver.find_element(By.ID, 'next_btn').click()
     sleep(locators.sleep_value)
     driver.find_element(By.NAME, 'safepay_username').clear()
-    driver.find_element(By.NAME, 'safepay_username').send_keys('pbjira')
+    driver.find_element(By.NAME, 'safepay_username').send_keys(locators.user_name)
     driver.find_element(By.NAME, 'safepay_password').clear()
-    driver.find_element(By.NAME, 'safepay_password').send_keys('Pass1')
+    driver.find_element(By.NAME, 'safepay_password').send_keys(locators.password)
     driver.find_element(By.ID, 'pay_now_btn_SAFEPAY').click()
 
     if driver.find_element(By.XPATH, '//*[contains(., "Thank you")]'):
         print('Thank you message displayed')
 
-
+    order_number_element = driver.find_element(By.XPATH, '//label[@id="trackingNumberLabel"]').text
+    sleep(locators.sleep_value)
+    print('Tracking Number: ', driver.find_element(By.CSS_SELECTOR, '#trackingNumberLabel').text)
+    sleep(locators.sleep_value)
+    print('Order number : ', driver.find_element(By.CSS_SELECTOR, '#orderNumberLabel').text)
 
 
 # Call methods from here
@@ -330,8 +336,8 @@ def validate_add_itemto_shopping_cart():
 # verify_logo_display()
 # validate_contact_us()
 # validate_social_media()
-# # validate_add_itemto_shopping_cart()
 # logout()
 # login()
+# validate_add_itemto_shopping_cart()
 # logout()
 # teardown()

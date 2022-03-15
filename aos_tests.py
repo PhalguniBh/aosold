@@ -31,6 +31,9 @@ class AosAppPositiveTestCases(unittest.TestCase):   # create class
         # -------- LOGIN AS NEW USER -----------------
         sleep(0.25)
         methods.login()
+        # --------Shopping cart checkout functionality  validation ---------------
+        sleep(0.25)
+        methods.validate_add_itemto_shopping_cart()
         sleep(0.25)
         methods.logout()
         # -------------------------
