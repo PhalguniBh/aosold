@@ -6,7 +6,7 @@ class AosAppPositiveTestCases(unittest.TestCase):   # create class
 
     @staticmethod  # signal to unit test that this is a static method
     def test_create_new_user(self=None):
-        methods.setUp()git 
+        methods.setUp()
         # ------ CREATE NEW USER -------------
         methods.create_new_user()
         # ------- Validate Text Speaker, Tablets, Headphones, Laptops, Mice---------------
